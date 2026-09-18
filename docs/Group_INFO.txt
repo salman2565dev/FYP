@@ -1,0 +1,6 @@
+Supervisor: Mr. Amir Zia
+
+Group Members:
+Name	          Roll Number	       Role
+Talha Saleem	  BSCS51F23S012	     Team Leader — AI/ML Implementation
+Salman Khalid	  BSCS51F23S045	     Developer — Platform & Deployment
