@@ -1,4 +1,4 @@
- ### Topic: Docker-outside-of-Docker (DooD)
+ ### Topic: Docker-outside-of-Docker (Dood)
 
 Today, I dedicated approximately **4 hours** to deeply learning and practicing **Docker-outside-of-Docker (DooD)**. This was a completely new concept for me, and the learning curve was steep.
 
