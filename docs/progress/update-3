@@ -1,0 +1,20 @@
+ ### Topic: Docker-outside-of-Docker (DooD)
+
+Today, I dedicated approximately **4 hours** to deeply learning and practicing **Docker-outside-of-Docker (DooD)**. This was a completely new concept for me, and the learning curve was steep.
+
+**What I learned:**
+- How DooD enables a Jenkins container to use the host machine's Docker daemon
+- How Jenkins automates the deployment pipeline through a container registry
+- How to configure and use **Docker Hub** as the registry for storing and retrieving images
+
+**Practical work:**
+- Built and practiced a small project implementing the DooD architecture
+- Successfully ran the end-to-end flow: code → build → push to Docker Hub → deploy
+
+**Challenges faced:**
+- This concept was entirely new, so I made frequent basic mistakes
+- Debugging the errors consumed a significant portion of the time
+- Understanding the interaction between the Jenkins container, the mounted Docker socket, and the host daemon required multiple iterations
+
+**Key takeaway:**
+Despite the challenges, I now have a working understanding of how Jenkins automates application deployment using Docker Hub as a registry.as a registry. 
