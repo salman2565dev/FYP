@@ -11,11 +11,12 @@
 **AI-Integrated Automated Deployment Platform for Private Servers** is an automated application deployment and infrastructure management platform designed specifically for self-hosted and private servers. The platform simplifies application deployment workflows while leveraging Artificial Intelligence to ensure deployment reliability, resource optimization, and automated recovery.
 
 ### Core AI Features
-1. **AI-Based Deployment Failure Prediction and Auto-Rollback**:
-   - Analyzes build logs, configuration parameters, and runtime metrics to predict deployment failures.
-   - Triggers automated rollbacks to previous stable states to prevent downtime.
-2. **Intelligent Resource Auto-Scaling**:
-   - Forecasts workload and traffic patterns using machine learning to dynamically scale and allocate server resources (CPU, RAM, container instances).
+1. **Intelligent Resource Auto-Scaling (The Traffic Forecaster)**:
+   - Analyzes historical web traffic logs using time-series forecasting (e.g., Random Forest or LSTM) to predict incoming         load spikes.
+   - Generates recommendations to trigger proactive container scaling and allocate CPU/RAM before the server is overwhelmed,      preventing user downtime.
+2. **Real-Time Ransomware Mitigation (The Immune System)**:
+   - Continuously monitors live file-system metrics (I/O speeds, read/write rates) using anomaly detection models (e.g.,          Isolation Forest).
+   - Instantly flags malicious encryption behavior, providing alerts to trigger DevOps scripts that isolate the infected          container and initiate backups.
 
 ---
 
