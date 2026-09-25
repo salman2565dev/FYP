@@ -16,3 +16,5 @@ and the proposed approach. He reviewed it and **approved it**.
 ### Note
 Due to unforeseen circumstances, we were able to dedicate only limited time 
 to our learning today. We plan to compensate in the coming days.
+<img width="1361" height="376" alt="image" src="https://github.com/user-attachments/assets/35ddeab3-0554-425f-995a-d207b98b7753" />
+
