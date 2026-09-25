@@ -9,3 +9,4 @@
 ### Next Target
 - Get hands-on with **Maven** (Java build tool)
 - Explore **AWS** for cloud deployment (starting with EC2)
+<img width="1753" height="687" alt="image" src="https://github.com/user-attachments/assets/90a59c26-23f9-4e23-af37-4c10e88eb85c" />
