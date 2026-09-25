@@ -37,3 +37,4 @@ Progress: Gained a working overview of the complete ML workflow. Not yet mastere
 Overall Status
 
 We are in the learning and exploration phase. Many tools and concepts remain to be studied before we move into implementation. We are committed to closing these gaps and will share our progress regularly.
+<img width="1361" height="438" alt="image" src="https://github.com/user-attachments/assets/efcfbfd8-60a2-444e-b2c5-09157cc7a401" />
