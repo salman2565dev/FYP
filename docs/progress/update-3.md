@@ -18,3 +18,4 @@ Today, I dedicated approximately **4 hours** to deeply learning and practicing *
 
 **Key takeaway:**
 Despite the challenges, I now have a working understanding of how Jenkins automates application deployment using Docker Hub as a registry.as a registry. 
+<img width="1367" height="486" alt="image" src="https://github.com/user-attachments/assets/83a23270-4c76-4efe-aaf9-ec4d36fb3d06" />
