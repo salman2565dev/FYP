@@ -6,21 +6,43 @@
 
 ---
 
-## Project Overview
+## 💡 Project Origin & Motivation: "Coolify + AI Ops"
 
-**AI-Integrated Automated Deployment Platform for Private Servers** is an automated application deployment and infrastructure management platform designed specifically for self-hosted and private servers. The platform simplifies application deployment workflows while leveraging Artificial Intelligence to ensure deployment reliability, resource optimization, and automated recovery.
+As computer science students, we wanted an easy way to deploy our web applications without having to pay monthly bills for cloud services like AWS, Vercel, or Heroku. 
 
-### Core AI Features
-1. **Intelligent Resource Auto-Scaling (The Traffic Forecaster)**:
-   - Analyzes historical web traffic logs using time-series forecasting (e.g., Random Forest or LSTM) to predict incoming         load spikes.
-   - Generates recommendations to trigger proactive container scaling and allocate CPU/RAM before the server is overwhelmed,      preventing user downtime.
-2. **Real-Time Ransomware Mitigation (The Immune System)**:
-   - Continuously monitors live file-system metrics (I/O speeds, read/write rates) using anomaly detection models (e.g.,          Isolation Forest).
-   - Instantly flags malicious encryption behavior, providing alerts to trigger DevOps scripts that isolate the infected          container and initiate backups.
+While looking for self-hosted solutions, **Salman** discovered an open-source tool called **Coolify** ([coolify.io](https://coolify.io)). Coolify is popular because it lets developers connect to their own private server (or laptop) using SSH and automatically deploy projects using Docker containers. 
+
+However, while testing and using Coolify, we noticed two common problems that students and beginners always struggle with:
+1. **Confusing Build Errors:** When a deployment fails (like a port conflict `EADDRINUSE` or `502 Bad Gateway`), Coolify only shows hundreds of lines of raw terminal logs. For a beginner or student developer, it is very hard to figure out what actually broke without searching Google for hours. There was no AI assistant or chatbot to explain the error in plain English.
+2. **Containers Crash Without Warning:** Tools like Coolify only alert you after a container has already crashed. They don't give you an early warning if a container is slowly running out of memory (memory leak) or restarting repeatedly.
+
+At the same time, **Talha** was looking for a practical Machine Learning project for our FYP. Instead of doing a typical toy project (like predicting house prices or movie reviews), Talha wanted to solve a real system problem. While watching YouTube engineering channels like **StatQuest with Josh Starmer** and **TechWorld with Nana**, and consulting AI tools for practical ideas, Talha learned about **unsupervised Anomaly Detection using Isolation Forest**. 
+
+We realized we could combine our two ideas into one solid project:
+- **Salman's Part (DevOps):** Built a self-hosted platform inspired by Coolify that uses SSH, Docker, and Traefik to automatically deploy apps from GitHub.
+- **Talha's Part (AI & ML):** Added a **2-layer AI Copilot** that instantly explains deployment errors in simple words, plus an **Isolation Forest Anomaly Detector** that watches live Docker stats (CPU %, memory %, restart count, network I/O) to warn us if a container starts behaving abnormally *before* it crashes.
+
+We tested our model by writing simple test scripts to inject fake memory leaks and high CPU usage, and the model successfully detected them.
+
+The result is **DeployStack AI**: a beginner-friendly, self-hosted deployment platform that makes hosting apps easy and uses AI to help you catch errors and fix container problems.
 
 ---
 
-## Project Team
+## 🤖 Core AI Features
+
+### 1. Container Health Anomaly Detection (Isolation Forest)
+- Continuously monitors live per-container resource metrics (CPU %, memory %, restart count, network I/O) collected via Docker stats / cAdvisor.
+- Uses an unsupervised anomaly detection model (**Isolation Forest**, Scikit-learn) trained on normal container behavior to flag containers that are degrading or about to fail — catching unusual combinations of metrics (e.g. memory climbing + restarts increasing together) that a simple fixed threshold would miss.
+- Ground-truth "unhealthy" states are generated via controlled fault injection (simulated memory leaks, CPU spikes, crash loops) so the model's detections can be validated against known-bad states, not just eyeballed.
+- Flags feed into the platform's alerting dashboard so the DevOps side can act (restart, scale, isolate).
+
+### 2. Dual-Layer AI Ops Copilot
+- **Layer 1 (Zero-Cost Deterministic Engine):** Instant regex pattern catalog for 80% of routine DevOps container errors (`EADDRINUSE`, `502 Bad Gateway`, `ENOTFOUND`, missing `Dockerfile`) with 0ms latency and $0 API cost.
+- **Layer 2 (LLM Tool Calling Agent):** Natural-language assistant for explaining novel errors in simple words and executing operational commands.
+
+---
+
+## 👥 Project Team
 
 | Name | Roll Number | Role / Specialization |
 | :--- | :--- | :--- |
@@ -29,21 +51,30 @@
 
 ---
 
-## Planned Tech Stack and Tooling
+## 🛠️ Planned Tech Stack and Tooling
 
 * **Platform and DevOps Track**:
   * **Docker**: Containerization, image building, volume management, and networking
   * **Git and GitHub**: Distributed version control and collaborative branching workflows
-  * **Jenkins and CI/CD Pipelines**: Automated build, test, and deployment automation
+  * **Traefik & Reverse Proxy**: Dynamic domain routing and automatic SSL
   * **Private Infrastructure**: Self-hosted Linux servers and environment orchestration
 * **AI and Machine Learning Track**:
-  * **Python Ecosystem**: NumPy, Pandas, Scikit-learn
-  * **ML Pipelines**: Data preprocessing, feature engineering, and model training
-  * **Predictive Modeling**: Time-series traffic forecasting and anomaly detection on deployment logs
+  * **Python Ecosystem**: NumPy, Pandas, Scikit-learn, FastAPI
+  * **Anomaly Detection**: Container health monitoring using Isolation Forest (`sklearn.ensemble.IsolationForest`)
+  * **DevOps Copilot**: Deterministic regex pattern diagnostics + LLM tool calling
 
 ---
 
-## Repository Structure
+## 📚 Student & Project References
+
+1. **PaaS Architecture:** Inspired by open-source **Coolify** ([github.com/coolify-io/coolify](https://github.com/coolify-io/coolify)) for agentless SSH orchestration and Traefik container auto-discovery.
+2. **Machine Learning Concept:** Learned Isolation Forest from **StatQuest with Josh Starmer** on YouTube (*"Isolation Forest, Clearly Explained!"*) and the official **Scikit-Learn documentation** (`sklearn.ensemble.IsolationForest`).
+3. **Container Telemetry:** Docker metrics collection methodology guided by **TechWorld with Nana** on YouTube (*"Docker Container Monitoring & Metrics Explained"*).
+4. **AI Pair Programming:** Consulted AI tools (ChatGPT / Claude) for brainstorming the fault-injection validation scripts.
+
+---
+
+## 📁 Repository Structure
 
 ```
 FYP/
@@ -57,13 +88,13 @@ FYP/
 
 ---
 
-## Current Status
+## 🚀 Current Status
 
-We are actively in the **Foundation and Exploration Phase**:
-* **DevOps**: Hands-on practical exercises with Docker containerization, CI/CD pipeline triggers, and Linux server workflows.
-* **AI/ML**: Structured study through the *"100 Days of Machine Learning"* curriculum, covering data preprocessing, ML pipelines, and exploratory data analysis.
+We are actively in the **Development & Validation Phase**:
+* **DevOps**: Hands-on orchestration with Docker containerization, dynamic Traefik routing, and private Linux server workflows.
+* **AI/ML**: Implemented unsupervised Isolation Forest for container telemetry anomaly detection with synthetic fault-injection testing.
 
 ---
 
-## Progress Tracking
+## 📈 Progress Tracking
 All weekly progress reports, learning logs, and supervisor meeting outcomes are documented under [`docs/progress/`](docs/progress/).
